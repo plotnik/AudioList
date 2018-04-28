@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
 import { File, Entry } from '@ionic-native/file';
 
 @Component({
@@ -18,21 +17,18 @@ export class HomePage {
     }
 
     reloadPath() {
-        console.log('-- reload path');
-        this.path = this.file.dataDirectory;
-        
-        //this.file.listDir
-        /*
-        //let self = this;
-        this.file.resolveLocalFilesystemUrl(this.path).then(entry => {
-            //console.log('entry:',entry);
-            //self.filelist = entries; 
-        });
-        */
+        let self = this;
+        this.file.listDir(this.file.externalRootDirectory, this.path)
+            .then((entries: Entry[]) => {
+                self.filelist = entries.filter((entry: Entry) => {
+                    return entry.isDirectory;
+                });
+                console.log('-- filelist.length:',this.filelist.length);
+            });
     }
-    /*
-    listDir(path: string): Promise {
-        return this.file.resolveLocalFilesystemUrl(path);
 
-    }*/
+    clickItem() {
+        console.log('-- click');
+    }
+
 }

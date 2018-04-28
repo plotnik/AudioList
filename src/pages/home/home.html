@@ -16,19 +16,12 @@
       <b>{{path}}</b>
     </ion-card-content>
 
-    <!--ion-list no-lines>
-      <button ion-item *ngFor="let f of filelist" (click)="clickItem(f)">
-        {{ f.name }}
-      </button>
-    </ion-list-->
-
-    <!--ion-list>
-      <ion-item *ngFor="let f of filelist" (click)="clickItem(f)">
-        <ion-icon [name]="fclass(f)" item-start></ion-icon>
-        {{ f.name }}
-      </ion-item>
-    </ion-list-->
-
   </ion-card>
+  <ion-list no-lines>
+    <button ion-item *ngFor="let f of filelist"
+            (click)="clickItem(f)">
+      {{ f.name }}
+    </button>
+  </ion-list>
 
 </ion-content>
