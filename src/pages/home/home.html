@@ -3,25 +3,47 @@
     <ion-title>
       Audio List
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="clickUp()">
+        <ion-icon name="arrow-round-up"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
   <ion-card>
-
     <ion-card-content>
-      <ion-icon name="folder"></ion-icon>
-      Path:
-      <b>{{path}}</b>
+      {{path}}/
     </ion-card-content>
-
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label floating>Playlist name</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col center text-end>
+        <ion-note item-end>
+          {{numfiles || 'No'}} mp3 file{{numfiles==1? '':'s'}}
+        </ion-note>
+      </ion-col>
+    </ion-row>
   </ion-card>
+
   <ion-list no-lines>
-    <button ion-item *ngFor="let f of filelist"
-            (click)="clickItem(f)">
+    <button ion-item *ngFor="let f of filelist" (click)="clickItem(f)">
       {{ f.name }}
     </button>
   </ion-list>
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary">
+      <ion-icon name="musical-notes"></ion-icon>
+    </button>
+  </ion-fab>
 
 </ion-content>
