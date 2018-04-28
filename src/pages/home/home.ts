@@ -19,12 +19,16 @@ export class HomePage {
 
     reloadPath() {
         console.log('-- reload path');
+        this.path = this.file.dataDirectory;
+        
+        //this.file.listDir
+        /*
         //let self = this;
         this.file.resolveLocalFilesystemUrl(this.path).then(entry => {
             //console.log('entry:',entry);
             //self.filelist = entries; 
         });
-
+        */
     }
     /*
     listDir(path: string): Promise {
