@@ -21,7 +21,7 @@
       <ion-col>
         <ion-item>
           <ion-label floating>Playlist name</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input type="text" [(ngModel)]="playlist"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -41,7 +41,7 @@
   </ion-list>
 
   <ion-fab right bottom>
-    <button ion-fab color="primary">
+    <button ion-fab color="primary" [disabled]="!playlist" (click)="generate()">
       <ion-icon name="musical-notes"></ion-icon>
     </button>
   </ion-fab>
