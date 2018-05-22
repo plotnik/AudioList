@@ -82,7 +82,7 @@ export class HomePage {
         for (var i = 0; i < this.allfiles.length; i++) {
             var f = this.allfiles[i];
             text += "#EXTINF:-1," + f.name + "\n" +
-                f.fullPath.substring(this.path.length + 1) + "\n";
+                f.fullPath.substring(this.path.length + 2) + "\n";
         }
         var fname = this.path + '/' + this.playlist + '.m3u8';
         this.file.writeFile(this.file.externalRootDirectory, fname, text, { replace: true }).then(value => {
